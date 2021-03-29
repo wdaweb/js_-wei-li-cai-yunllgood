@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 隨機取區間整數亂數
+        const rand = (min, max) => {
+            return Math.round(Math.random() * (max - min) + min)
+        }
+        // B區
+        let b = rand(1, 8)
+
+        // A區解法一
+        let a = []
+        for (let i = 1; i <= 6; i++) {
+            let number = rand(1, 38)
+            // 刪除重複
+            if (a.includes(number)) {
+                // 讓迴圈再跑一次用i--
+                i--
+            } else {
+                a.push(number)
+            }
+        }
+        document.write(`A區: ${a.join(',')}<br> B區: ${b}`)
+
+        // A區解法二
+        /*
+        // 要用小於6，因為是用push
+        let a = []
+        while (a.length < 6) {
+            let aNumber = rand(1, 38);
+            if (!a.includes(number)) {
+              a.push(number);
+        }
+        */
+
+        // A區解法三
+        /*
+        // 模擬球池有38顆球
+        let numbers = []
+        for (let i = 0; i <= 6; i++) {
+            numbers.push(i)
+        }
+
+        for (let i = 1; i <= 6; i++) {
+            let index = rand(0, numbers.length - 1)
+            a.push(numbers[index])
+            // splice(開始位置, 刪除數量, 插入值1, 插入值2...)
+            numbers.splice(index, 1)
+        }
+        */
+    </script>
+</body>
+
+</html>
